@@ -1,7 +1,30 @@
-const ItemListContainer = ({greeting}) => {
-    return(
+import { useEffect, useState } from "react"
+import Item from "../components/item/item"
+import { useParams } from "react-router-dom"
+
+const ItemListContainer = ({ greeting }) => {
+
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        const url = greeting ? `https://fakestoreapi.com/products/category/${greeting}` : `https://fakestoreapi.com/products`
+        fetch(url)
+            .then(res => res.json())
+            .then(json => setItems(json))
+            .catch(error => console.error(error))
+    }, [greeting])
+
+    return (
         <>
-        <h2 className="Saludo">{greeting}</h2>
+
+            {items.length > 0 ? (
+                <div className="contenedor">
+                    {items.map(productos => <Item key={productos.id} productos={productos} ></Item>)}
+                </div>
+            ) : (
+                <p className="contenedor load">Cargando...</p>
+            )}
+
         </>
     )
 }
