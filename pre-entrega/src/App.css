@@ -76,10 +76,8 @@
 .contenedor-item-list{
   width: 20rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto 1fr 0.5fr;
   border: solid black 1px;
   border-radius: 50px;
   margin: 3rem;
@@ -93,10 +91,10 @@
 }
 .text-item-list{
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 1rem;
 }
 .text-item-list h1 {
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .load {
