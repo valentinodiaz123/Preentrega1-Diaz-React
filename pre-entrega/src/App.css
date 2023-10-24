@@ -75,6 +75,7 @@
 
 .contenedor-item-list{
   width: 20rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,10 +87,13 @@
 
 .image-item-list{
   width: 15rem;
+  height: 20rem;
+  margin: auto;
+  object-fit: contain;
 }
 .text-item-list{
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 10rem;
 }
 .text-item-list h1 {
   font-size: 20px;
