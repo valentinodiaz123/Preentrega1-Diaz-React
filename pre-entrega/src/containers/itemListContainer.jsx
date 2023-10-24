@@ -19,10 +19,12 @@ const ItemListContainer = ({ greeting }) => {
         <>
 
             {items.length > 0 ? (
-                
+                <>
+                <Carrousel/>
                 <div className="contenedor">
                     {items.map(productos => <Item key={productos.id} productos={productos} ></Item>)}
                 </div>
+                </>
             ) : (
                 <p className="contenedor load">Cargando...</p>
             )}
