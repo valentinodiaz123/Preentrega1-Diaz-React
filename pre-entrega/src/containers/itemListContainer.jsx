@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Item from "../components/item/item"
 import { useParams } from "react-router-dom"
+import Carrousel from "../components/carrousel/carrousel"
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -18,6 +19,7 @@ const ItemListContainer = ({ greeting }) => {
         <>
 
             {items.length > 0 ? (
+                
                 <div className="contenedor">
                     {items.map(productos => <Item key={productos.id} productos={productos} ></Item>)}
                 </div>
