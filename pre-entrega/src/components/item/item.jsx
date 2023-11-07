@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
+// import { CartContext } from "../../context/cartContext"
+// import { useContext } from "react"
 
 const Item = ({ productos }) => {
+
+    // const {numero, setNumero} = useContext(CartContext)
+    
     return (
         <>
             <div className="contenedor-item-list" >
@@ -11,6 +16,7 @@ const Item = ({ productos }) => {
                     <h1 className="card-title">{productos.title}</h1>
                     <p className="card-price">{productos.price}</p>
                 </div>
+                {/* <p>Prueba del context{numero}</p> */}
 
                 <button className="btn btn-primary m-3"><Link className="text-light text-decoration-none"to={`/item/${productos.id}`}>Ver Mas</Link></button>
 
