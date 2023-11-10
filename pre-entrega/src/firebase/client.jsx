@@ -1,7 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore} from `firebase/firestore` 
-
-// firestore es un servicio de firebase
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
     // aca va el objeto que nos da firebase

@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import NavBar from './components/navBar/navBar'
-import ItemListContainer from './containers/itemListContainer'
+import ItemListContainer from './components/itemListContainer/itemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/itemDetailContainer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CartComponentContext from './context/cartContext'
@@ -37,7 +37,7 @@ function App() {
         
           Y si yo tengo 2 rout que van a la misma url, pero cada uno renderiza elementos distintos, el primer elemento que le indique, es el que va a renderizar, react tiene un enfoque de enrutamiento que maneja las coincidencias de rutas de una forma en la que el primer route que coincida con la misma url, va a renderizar el que este escrito primero en el codigo   */}
 
-            <Route exact path='/' element={<ItemListContainer />} />
+            <Route exact path='/' element={<ItemListContainer/>}/>
             <Route exact path='/category/electronics' element={<ItemListContainer greeting="electronics" />} />
             <Route exact path='/category/jewelery' element={<ItemListContainer greeting="jewelery" />} />
             <Route exact path='/category/womens clothing' element={<ItemListContainer greeting="women's clothing" />} />

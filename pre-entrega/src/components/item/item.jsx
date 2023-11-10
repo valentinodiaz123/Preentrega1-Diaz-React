@@ -13,8 +13,8 @@ const Item = ({ productos }) => {
                 <img className="image-item-list" src={productos.image} alt="" />
 
                 <div className="text-item-list">
-                    <h1 className="card-title">{productos.title}</h1>
-                    <p className="card-price">{productos.price}</p>
+                    <h1 className="card-title">{productos.tittle}</h1>
+                    <p className="card-price">$ {productos.price}</p>
                 </div>
                 {/* <p>Prueba del context{numero}</p> */}
 
