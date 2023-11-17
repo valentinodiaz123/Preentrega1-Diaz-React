@@ -1,15 +1,56 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-export const CartContext = createContext()
+export const CartContext = createContext();
 
-const CartComponentContext = ({children}) => {
-    const [numero, setNumero] = useState(1)
+export const CartComponenteContext = ({ children }) => {
 
-    return (
-        <CartContext.Provider value={{numero, setNumero}}>
-            {children}
-        </CartContext.Provider>
-    )
+  const obtenerDatos = () => {
+
+    const datosGuardados = localStorage.getItem('cart');
+
+    return datosGuardados ? JSON.parse(datosGuardados) : [];
+    
+  };
+
+  const [arrayCart, setArrayCart] = useState(obtenerDatos)
+
+  const [cantidades, setCantidades] = useState(1)
+
+  const [totalCompra, setTotalCompra] = useState (0)
+
+  useEffect(() => {
+
+    localStorage.setItem('cart', JSON.stringify(arrayCart))
+    actualizarTotal()
+
+  }, [arrayCart]);
+
+  let cartWid = arrayCart.length
+
+  const actualizarTotal = () => {
+
+    let nuevoTotal = 0;
+
+    arrayCart.forEach((element) => {
+
+      nuevoTotal += element.cantidad * element.price;
+
+    });
+
+    setTotalCompra(nuevoTotal);
+  };
+
+
+
+  return (
+
+    <CartContext.Provider value={{ arrayCart, setArrayCart, cantidades, setCantidades, cartWid, totalCompra, setTotalCompra }}>
+
+      {children}
+
+    </CartContext.Provider>
+  )
+
 }
 
-export default CartComponentContext
+export default CartComponenteContext

@@ -21,14 +21,9 @@ const ItemDetailContainer = () => {
         getDoc(productRef)
         .then((snapshot) => {
             if(snapshot.exists()){
-                setProducto({id: snapshot.id, ...snapshot.data()})
+                setProducto({cantidad: 1, id: snapshot.id, ...snapshot.data()})
             }
         })
-
-        // fetch(`https://fakestoreapi.com/products/${id}`)
-        //     .then(res => res.json())
-        //     .then(json => setProducto(json))
-        //     .catch(error => console.error(error))
 
     }, [id])
 

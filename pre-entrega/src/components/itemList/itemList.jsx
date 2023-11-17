@@ -6,7 +6,6 @@ const ItemList = ({ greeting }) => {
     return (
         greeting.length > 0 ? (
             <>
-                <Carrousel />
                 <div className="contenedor">
                     {greeting.map(productos => <Item key={productos.id} productos={productos} ></Item>)}
                 </div>

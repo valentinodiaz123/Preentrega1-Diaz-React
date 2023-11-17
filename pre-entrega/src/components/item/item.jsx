@@ -3,25 +3,32 @@ import { Link } from "react-router-dom"
 // import { useContext } from "react"
 
 const Item = ({ productos }) => {
-
-    // const {numero, setNumero} = useContext(CartContext)
-    
-    return (
+        return (
         <>
-            <div className="contenedor-item-list" >
-                
-                <img className="image-item-list" src={productos.image} alt="" />
+            <div className="contenedor-item-list">
+                <img
+                    className="image-item-list"
+                    src={productos && productos.image}
+                    alt=""
+                />
 
                 <div className="text-item-list">
-                    <h1 className="card-title">{productos.tittle}</h1>
-                    <p className="card-price">$ {productos.price}</p>
+                    <h1 className="card-title">{productos && productos.tittle}</h1>
+                    <p className="card-price">$ {productos && productos.price}</p>
                 </div>
-                {/* <p>Prueba del context{numero}</p> */}
 
-                <button className="btn btn-primary m-3"><Link className="text-light text-decoration-none"to={`/item/${productos.id}`}>Ver Mas</Link></button>
+                <button className="btn btn-primary m-3">
 
+                    <Link
+                        className="text-light text-decoration-none"
+                        to={`/item/${productos && productos.id}`}
+                    >
+                        Ver Mas
+                    </Link>
+                </button>
             </div>
-        </>)
-}
+        </>
+    );
+};
 
 export default Item
